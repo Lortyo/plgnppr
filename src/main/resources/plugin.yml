@@ -1,0 +1,8 @@
+name: TesJe
+version: '1.0'
+main: com.rnno.tesJe.TesJe
+api-version: '1.21'
+commands:
+  hello:
+    description: Send a Greeting
+    usage: /<command> [player]
