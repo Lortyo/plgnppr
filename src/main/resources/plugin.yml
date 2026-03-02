@@ -6,3 +6,9 @@ commands:
   hello:
     description: Send a Greeting
     usage: /<command> [player]
+  wand:
+    description: Get a Magic Staff
+    usage: /<command>
+  menu:
+    description: Open a Menu
+    usage: /<command>
