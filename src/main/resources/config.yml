@@ -1,0 +1,8 @@
+# ==========================================
+# TesJe Plugin Setting
+# ==========================================
+
+# message that show up when typing /hello
+# use {player} to show player name
+# use symbol for color (example: &a = green, &a = yellow, &c = red)
+hello-message: "&eWelcome to the server, &b{player}&e! Have fun!"

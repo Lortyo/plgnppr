@@ -1,5 +1,6 @@
 package com.rnno.tesJe.commands;
 
+import com.rnno.tesJe.TesJe;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -18,7 +19,13 @@ public class HelloCommand implements CommandExecutor {
 
         Player player = (Player) sender;
         if (args.length == 0) {
-            player.sendMessage("§aHello, " + player.getName() + "! Welcome to the server!!");
+            org.bukkit.plugin.java.JavaPlugin plugin = org.bukkit.plugin.java.JavaPlugin.getPlugin(TesJe.class);
+            String message = plugin.getConfig().getString("hello-message");
+            if (message != null) {
+                message = message.replace("{player}", player.getName());
+                message = message.replace("&", "§");
+                player.sendMessage(message);
+            }
             return true;
         }
 

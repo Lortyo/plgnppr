@@ -12,3 +12,6 @@ commands:
   menu:
     description: Open a Menu
     usage: /<command>
+  boss:
+    description: Summon Zombie King
+    usage: /<command>
