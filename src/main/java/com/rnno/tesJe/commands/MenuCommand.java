@@ -12,6 +12,9 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.jetbrains.annotations.NotNull;
 import org.jspecify.annotations.NonNull;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MenuCommand implements CommandExecutor {
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NonNull @NotNull String[] args) {
@@ -23,6 +26,10 @@ public class MenuCommand implements CommandExecutor {
             ItemStack healButton = new ItemStack(Material.DIAMOND);
             ItemMeta metaHeal = healButton.getItemMeta();
             metaHeal.setDisplayName("§aHeal");
+
+            List<String> loreHeal = new ArrayList<>();
+            loreHeal.add("§7Price: §e50 Coins");
+            metaHeal.setLore(loreHeal);
             healButton.setItemMeta(metaHeal);
 
             ItemStack closeButton = new ItemStack(Material.BARRIER);

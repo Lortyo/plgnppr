@@ -25,9 +25,35 @@ public final class TesJe extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new WandListener(), this);
         getServer().getPluginManager().registerEvents(new MenuListener(), this);
         getServer().getPluginManager().registerEvents(new BossDeathListener(), this);
+
+        new org.bukkit.scheduler.BukkitRunnable() {
+            @Override
+            public void run() {
+                for (org.bukkit.entity.Player p : org.bukkit.Bukkit.getOnlinePlayers()) {
+                    updateScoreBoard(p);
+                }
+            }
+        }.runTaskTimer(this, 0, 40L);
     }
 
     @Override
     public void onDisable() {
-        getLogger().info("Plugin TesAja dimatikan. Bye-bye!");    }
+        getLogger().info("Plugin TesAja dimatikan. Bye-bye!");
+    }
+
+    public void updateScoreBoard(org.bukkit.entity.Player player) {
+        org.bukkit.scoreboard.ScoreboardManager manager = org.bukkit.Bukkit.getScoreboardManager();
+        org.bukkit.scoreboard.Scoreboard board = manager.getNewScoreboard();
+
+        org.bukkit.scoreboard.Objective obj = board.registerNewObjective("Info", "dummy", "§6§lTESJE SERVER");
+        obj.setDisplaySlot(org.bukkit.scoreboard.DisplaySlot.SIDEBAR);
+
+        int money = getConfig().getInt("coin." + player.getUniqueId(), 0);
+
+        obj.getScore(" ").setScore(3);
+        obj.getScore("§fMoney: §e" + money + " Coins").setScore(2);
+        obj.getScore(" ").setScore(1);
+
+        player.setScoreboard(board);
+    }
 }
