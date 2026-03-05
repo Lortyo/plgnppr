@@ -25,6 +25,7 @@ public final class TesJe extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new WandListener(), this);
         getServer().getPluginManager().registerEvents(new MenuListener(), this);
         getServer().getPluginManager().registerEvents(new BossDeathListener(), this);
+        getServer().getPluginManager().registerEvents(new WeaponListener(), this);
 
         new org.bukkit.scheduler.BukkitRunnable() {
             @Override
